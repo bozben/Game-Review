@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Review Site Mockup</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="navbar">
+  <nav>
+    <a href="#">Games</a>
+    <a href="#">Movies</a>
+    <a href="#">Top 100</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <main class="cards" id="cardContainer"></main>
+
+  <aside class="filters">
+    <h2>Filters</h2>
+    <p>Include Tags:</p>
+    <input id="searchInclude" class="tag-search" placeholder="Search include tags..." />
+    <div id="includeButtons" class="tag-buttons"></div>
+
+    <p>Exclude Tags:</p>
+    <input id="searchExclude" class="tag-search" placeholder="Search exclude tags..." />
+    <div id="excludeButtons" class="tag-buttons"></div>
+  </aside>
+</div>
+
+<div id="pagination" class="pagination"></div>
+<script src="script.js"></script>
+</body>
+</html>

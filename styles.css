@@ -1,0 +1,217 @@
+/* ===== Base Styles ===== */
+html {
+    scroll-padding-top: 120px;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #111;
+    font-family: sans-serif;
+}
+
+/* ===== Layout Structure ===== */
+.layout {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 1001;
+    padding: 1rem;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===== Filters ===== */
+.filters {
+    width: 250px;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: #eee;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    flex-shrink: 0;
+    border-left: 1px solid #333;
+    z-index: 1000;
+}
+
+.tag-search {
+    width: 100%;
+    padding: 0.4rem;
+    margin: 0.5rem 0 1rem 0;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #222;
+    color: white;
+}
+
+/* ===== Cards Grid ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    flex-grow: 1;
+    min-height: calc(100vh - 150px);
+}
+
+@media (min-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(5, minmax(250px, 1fr));
+    }
+}
+
+/* ===== Individual Cards ===== */
+.card {
+    width: 100%;
+    height: 380px;
+    background-color: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background: linear-gradient(45deg, #333 0%, #222 100%);
+}
+
+.separator {
+    height: 4px;
+    background-color: #44c8f5;
+}
+
+.card-content {
+    padding: 0.8rem;
+    color: #ddd;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.game-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.game-meta {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0.3rem 0;
+}
+
+/* ===== Tags ===== */
+.card-tags {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 0.8rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.card:hover .card-tags {
+    transform: translateY(0);
+}
+
+.card-tag {
+    background-color: #333;
+    border: 1px solid #777;
+    color: #eee;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 10px;
+    position: sticky;
+    bottom: 0;
+    background: #111;
+    padding: 1rem 0;
+    z-index: 1002;
+}
+
+.pagination button {
+    background-color: #444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.pagination button.active {
+    background-color: #2196f3;
+}
+
+/* ===== Tag Buttons ===== */
+.tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1rem;
+}
+
+.tag-buttons button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+.tag-buttons button:hover {
+    background-color: #555;
+}
+
+.tag-buttons button.selected.include {
+    background-color: #2e7d32;
+}
+
+.tag-buttons button.selected.exclude {
+    background-color: #c62828;
+}
